@@ -4,8 +4,6 @@ const listUsersService = require("../services/findAllUsersService")
 const getUserByIdService = require("../services/getUserByIdService")
 const updateUserByIdService = require("../services/updateUserService")
 
-const User = require('../factories/User')
-
 class UserController {
     async listUsers(_, res) {
         try {

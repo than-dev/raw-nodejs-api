@@ -55,13 +55,15 @@ class UpdateUserService {
             }
         }
 
-        return true
+        return {
+            isValid: true
+        }
     }
 
     async updateUserById(id, newCredentials) {
         const validation = await this.#executeValidations(newCredentials)
 
-        if (!validation) {
+        if (!validation.isValid) {
             throw new Error(validation.errorMessage)
         }
 

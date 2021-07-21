@@ -22,7 +22,7 @@ module.exports = [
         action: deleteUser
     },
     {
-        method: 'POST',
+        method: 'PATCH',
         endpoint: '/update/user/:id',
         action: updateUser
     }

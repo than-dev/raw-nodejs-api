@@ -12,6 +12,7 @@ class Repository {
 
     async create(data) {
         const allData = await this.findAll()
+        
         allData.push(data)
         allData.sort((data1, data2) => {
             return data1.id < data2.id
