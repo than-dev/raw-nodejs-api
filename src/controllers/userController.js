@@ -2,6 +2,9 @@ const createUserService = require("../services/createUserService")
 const deleteUserByIdService = require("../services/deleteUserByIdService")
 const listUsersService = require("../services/findAllUsersService")
 const getUserByIdService = require("../services/getUserByIdService")
+const updateUserByIdService = require("../services/updateUserService")
+
+const User = require('../factories/User')
 
 class UserController {
     async listUsers(_, res) {
@@ -16,7 +19,7 @@ class UserController {
 
     async getUserById(req, res) {
         const { id } = req.params
-        
+
         try {
             const user = await getUserByIdService.getUserById(id)
 
@@ -30,7 +33,7 @@ class UserController {
 
     async createUser(req, res) {
         const { name, email } = req.body
-        
+
         try {
             const newUser = await createUserService.createUser(name, email)
 
@@ -40,12 +43,12 @@ class UserController {
                 error: error.message
             })
         }
-        
+
     }
 
     async deleteUser(req, res) {
         const { id } = req.params
-        
+
         try {
             const user = await deleteUserByIdService.deleteUserById(id)
 
@@ -58,7 +61,18 @@ class UserController {
     }
 
     async updateUser(req, res) {
-        return "atualizei o usuario"
+        const { body } = req
+        const { id } = req.params
+
+        try {
+            const newUser = await updateUserByIdService.updateUserById(id, body)
+
+            return res.send(200, newUser)
+        } catch (error) {
+            return res.send(400, {
+                error: error.message
+            })
+        }
     }
 }
 

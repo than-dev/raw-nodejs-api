@@ -3,16 +3,8 @@ const userRepository = require("../repositories/userRepository")
 const { readFile } = require('fs/promises')
 
 class CreateUserService {
-    constructor(filePath) {
-        this.filePath = filePath
-    }
-
-    async #currentFileContent() {
-        return JSON.parse(await readFile(this.filePath))
-    }
-
     async #verifyIfCredentialsAlreadyBeingUsed(name, email) {
-        const users = await this.#currentFileContent()
+        const users = await userRepository.findAll()
 
         const user = users.find((iterationCurrentUser) =>
             name === iterationCurrentUser.name ||
@@ -25,11 +17,15 @@ class CreateUserService {
 
         return false
     }
-    
+
     async createUser(name, email) {
+        if (!email || !name) {
+            throw new Error("send valid values")
+        }
+
         const credentialsAlreadyBeingUsed =
             await this.#verifyIfCredentialsAlreadyBeingUsed(name, email)
-        
+
         if (credentialsAlreadyBeingUsed) {
             throw new Error("email or name already being used")
         }
@@ -41,12 +37,13 @@ class CreateUserService {
             )
         )
 
+        console.log(newUser);
+
         return {
             ...newUser
         }
     }
-   
+
 }
 
-const { usersDataPath } = require('../config/paths')
-module.exports = new CreateUserService(usersDataPath)
+module.exports = new CreateUserService()

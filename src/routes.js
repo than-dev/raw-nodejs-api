@@ -9,7 +9,7 @@ module.exports = [
     {
         method: 'GET',
         endpoint: '/user/:id',
-        action: getUserById 
+        action: getUserById
     },
     {
         method: 'POST',
