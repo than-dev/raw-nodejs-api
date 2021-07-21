@@ -30,7 +30,7 @@ I used just the native modules of nodeJS and a JSON file as DataBank, that is ma
 <br>
 <br>
 
-## ----------------------------------------------------------------------------------------------------
+<hr>
 <br>
 
 ## 🏁 Getting Started <a name = "getting_started"></a>
