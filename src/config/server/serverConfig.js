@@ -4,7 +4,7 @@ const {
     verifyRouteUseParams,
     getRoute,
     generateUrlWithParam
-} = require('./handleServer')
+} = require('./serverConfigFunctions')
 
 module.exports = (req, res) => {
     setResponseSendMethod(res)

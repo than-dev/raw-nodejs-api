@@ -1,6 +1,4 @@
-const { usersDataPath } = require('../config/paths');
 const userRepository = require('../repositories/userRepository');
-
 
 class User {
     constructor(name, email) {

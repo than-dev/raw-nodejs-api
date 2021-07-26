@@ -52,11 +52,12 @@ class Repository {
     async findById(id) {
         const allData = await this.findAll()
         const data = allData.find((currentIterationData) => (
-            currentIterationData.id = id
+            currentIterationData.id === id
         ))
 
         if (!data) { return false }
 
+        data.id = parseInt(data.id)
         return data
     }
 
