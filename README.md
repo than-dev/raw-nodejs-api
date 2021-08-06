@@ -61,17 +61,19 @@ node src/server.js
 
 ## Main API Routes
 
-### http://localhost:3000/users
+<br>
+
+#### http://localhost:3000/users
 <h3><strong>GET | List all users</strong></h3>
 
-<hr width="50%" align="left">
+<hr>
 
-### http://localhost:3000/user/:id
+#### http://localhost:3000/user/:id
 <h3><strong>GET | Get user by Id</strong></h3>
 
-<hr width="50%" align="left">
+<hr>
 
-### http://localhost:3000/new/user
+#### http://localhost:3000/new/user
 <h3><strong>POST | Create User</strong></h3>
 
 <h3>Receives a JSON:</h3>
@@ -83,9 +85,9 @@ node src/server.js
 }
 ```
 
-<hr align="left">
+<hr>
 
-### http://localhost:3000/update/user/:id
+#### http://localhost:3000/update/user/:id
 <h3><strong>PATCH | Update User</strong></h3>
 
 <h3>Receives a JSON with new Information:</h3>
@@ -97,13 +99,20 @@ node src/server.js
 }
 ```
 
-<hr align="left">
+<hr>
 
-### http://localhost:3000/delete/user/:id
+#### http://localhost:3000/delete/user/:id
 <h3><strong>DELETE | Delete User</strong></h3>
 
 
+<hr>
 <br>
+
+### To request any route without an app use:
+```
+curl ${url} -X ${method}
+```
+
 <br>
 
 ## ⛏️ Built Using <a name = "built_using"></a>
