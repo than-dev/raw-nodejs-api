@@ -37,8 +37,6 @@ class CreateUserService {
             )
         )
 
-        console.log(newUser);
-
         return {
             ...newUser
         }
