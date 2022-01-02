@@ -59,7 +59,7 @@ node src/server.js
 ## 🎈 Usage <a name="usage"></a> 
 <br>
 
-## Main API Routes
+### Main API Routes
 
 <br>
 
